@@ -1,0 +1,42 @@
+services:
+  app:
+    build:
+      context: ../        # 🟢 On part de la racine du projet
+      dockerfile: infrastructure/Dockerfile
+    ports:
+      - "3000:3000"
+    working_dir: /app
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DB_USER=postgres
+      - DB_PASSWORD=Motdepasse
+      - DB_NAME=todolist
+      - DATABASE_URL=postgresql://postgres:Motdepasse@db:5432/todolist?schema=public
+      - PORT=3000
+
+  db:
+    image: postgres:15
+    container_name: postgres_db
+    restart: always
+    environment:
+      POSTGRES_DB: todolist
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Motdepasse
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+  nginx:
+    image: nginx:alpine
+    container_name: nginx_proxy
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+
+volumes:
+  db_data:
