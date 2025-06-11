@@ -25,3 +25,5 @@ Application web de gestion de tâches (Todo List) développée en groupe dans le
 git clone https://github.com/ignd/todo-list-app.git
 cd todo-list-app
 docker-compose up --build
+
+## Tester l'application sur le navigateur en mettant 'localhost:3000' 
