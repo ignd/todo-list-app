@@ -1,11 +1,11 @@
 services:
   app:
     build:
-      context: ../client
-      dockerfile: ../infrastructure/Dockerfile
-    container_name: node_app
+      context: ../        # 🟢 On part de la racine du projet
+      dockerfile: infrastructure/Dockerfile
     ports:
-      - "3000:3000"  
+      - "3000:3000"
+    working_dir: /app
     depends_on:
       - db
     environment:

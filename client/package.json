@@ -11,6 +11,7 @@
     "web-vitals": "^5.0.2"
   },
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test"
@@ -38,6 +39,10 @@
     "@types/react-dom": "^18.3.7",
     "autoprefixer": "^10.4.21",
     "postcss": "^8.4.0",
-    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17"
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.2.17",
+    "npm-force-resolutions": "^0.0.3"
+  },
+  "resolutions": {
+    "ajv": "8.11.0"
   }
 }
