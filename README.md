@@ -1,6 +1,4 @@
-<<<<<<< HEAD
-# todo-list-app
-=======
+
 README.md
 # Todo List App 📝
 
@@ -30,4 +28,6 @@ cd todo-list-app
 docker-compose up --build
 
 ## Tester l'application sur le navigateur en mettant 'localhost:3000' 
->>>>>>> develop
+
+
+
